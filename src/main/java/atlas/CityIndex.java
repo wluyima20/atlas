@@ -26,7 +26,7 @@ public class CityIndex implements Serializable {
   public static final String DATA_FOLDER_NAME = "./data";
   public static final String ADMIN1_DATA_FILE_NAME = "admin1CodesASCII.txt";
   public static final String ADMIN2_DATA_FILE_NAME = "admin2Codes.txt";
-  public static final String CITY_DATA_FILE_NAME = "cities1000.txt";
+  public static final String CITY_DATA_FILE_NAME = "cities5000.txt";
 
   public static final String INDEX_FOLDER_NAME = "./src/main/resources";
   public static final String INDEX_FILE_NAME = "index.ser";
