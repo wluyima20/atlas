@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class CityIndex implements Serializable {
 
@@ -38,6 +39,10 @@ public class CityIndex implements Serializable {
     public CityIndex() {
         // Public no-args constructor needed for serialization lib.
         this(new HashSet<City>());
+    }
+
+    public Set<City> getCities() {
+        return latitudeIndex.values().parallelStream().flatMap(Set::parallelStream).collect(Collectors.toSet());
     }
 
     protected CityIndex(Set<City> cities) {

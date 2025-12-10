@@ -9,7 +9,7 @@ public class Atlas {
     public static final double DEFAULT_MAX_DISTANCE = 25000.0;
     public static final int DEFAULT_LIMIT = 10;
 
-    private static CityIndex index = Utils.deserialize(INDEX_FILE_NAME, CityIndex.class);
+    private CityIndex index = Utils.deserialize(INDEX_FILE_NAME, CityIndex.class);
 
     private int limit;
     private double maxDistance;
@@ -17,6 +17,10 @@ public class Atlas {
     public Atlas() {
         this.limit = DEFAULT_LIMIT;
         this.maxDistance = DEFAULT_MAX_DISTANCE;
+    }
+
+    public CityIndex getIndex() {
+        return index;
     }
 
     public Atlas withLimit(int limit) {
