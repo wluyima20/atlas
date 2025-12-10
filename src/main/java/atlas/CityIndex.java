@@ -45,6 +45,11 @@ public class CityIndex implements Serializable {
         return latitudeIndex.values().parallelStream().flatMap(Set::parallelStream).collect(Collectors.toSet());
     }
 
+    public void clear() {
+        latitudeIndex.clear();
+        longitudeIndex.clear();
+    }
+
     protected CityIndex(Set<City> cities) {
 
         this.latitudeIndex = new TreeMap<>();
@@ -55,7 +60,7 @@ public class CityIndex implements Serializable {
         }
     }
 
-    protected void insert(City city) {
+    public void insert(City city) {
         insert(city.latitude, city, this.latitudeIndex);
         insert(city.longitude, city, this.longitudeIndex);
     }
