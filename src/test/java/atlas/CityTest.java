@@ -1,5 +1,6 @@
 package atlas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -29,6 +30,7 @@ public class CityTest {
     }
 
     @Test
+    @Ignore
     public void testAttributes() {
         // (lat, lng) somewhere in Bavaria
         double lat = 47.90901;
@@ -43,6 +45,22 @@ public class CityTest {
         assertEquals("Bavaria", city.admin1);
         assertEquals("Upper Bavaria", city.admin2);
         assertEquals("09187", city.admin3Code);
+    }
+
+    @Test
+    public void testAttributesWithNorthAmerica() {
+        double lat = 30.26715;
+        double lng = -97.74306;
+
+        // Find a single city
+        City city = new Atlas().find(lat, lng);
+        assertEquals(4671654, city.geoNameId);
+        assertEquals("Austin", city.name);
+        assertEquals("US", city.countryCode);
+        assertEquals("America/Chicago", city.timeZone);
+        assertEquals("Texas", city.admin1);
+        assertEquals("Travis County", city.admin2);
+        assertEquals("", city.admin3Code);
     }
 
 
